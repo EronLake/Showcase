@@ -60,7 +60,3 @@ db.document.name.requires = IS_NOT_IN_DB(db, 'document.name')
 db.document.project_id.readable = db.document.project_id.writable = False
 db.document.created_by.readable = db.document.created_by.writable = False
 db.document.created_on.readable = db.document.created_on.writable = False
-
-from gluon.tools import Auth
-auth = Auth(db)
-auth.define_tables(username=False,signature=False)
