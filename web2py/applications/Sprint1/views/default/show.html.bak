@@ -4,8 +4,18 @@
 | {{=A('edit', _href=URL('edit', args=request.args))}}
 | {{=A('documents', _href=URL('documents', args=request.args))}} ]<br />
 {{=MARKMIN(project.body)}}
+<!--Show image-->
 <img width="200px"
-     src="{{=URL('download', args=item.picture)}}" />
+     src="{{=URL('download', args=project.image)}}" />
+
+<!--Show Embedded youtube video-->
+<br>
+<iframe width="560" height="315" src={{=project.Youtube_Embed_Link}} frameborder="0" allowfullscreen></iframe>
+
+<!-- Show Embedded vimeo-->
+<br>
+<iframe src="https://player.vimeo.com/video/203846482" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
 <h2>Comments</h2>
 {{for post in comments:}}
   <p>{{=db.auth_user[post.created_by].first_name}} on {{=post.created_on}}

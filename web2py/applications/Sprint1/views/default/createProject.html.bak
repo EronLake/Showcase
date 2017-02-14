@@ -1,3 +1,6 @@
 {{extend 'layout.html'}}
-<h1>This is the default/createProject.html template</h1>
-{{=BEAUTIFY(response._vars)}}
+<h1>Create new project</h1>
+{{=form}}
+*Youtube link must look like "https://www.youtube.com/embed/9VMQjUMzztY"
+<br>
+*Vimeo link must look like "https://player.vimeo.com/video/14359525"
