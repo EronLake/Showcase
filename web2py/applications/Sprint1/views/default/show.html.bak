@@ -4,6 +4,7 @@
 | {{=A('edit', _href=URL('edit', args=request.args))}}
 | {{=A('documents', _href=URL('documents', args=request.args))}} ]<br />
 {{=MARKMIN(project.body)}}
+<br> src={{=project.category}}<br/>
 <!--Show image-->
 <img width="200px"
      src="{{=URL('download', args=project.image)}}" />
@@ -14,7 +15,7 @@
 
 <!-- Show Embedded vimeo-->
 <br>
-<iframe src="https://player.vimeo.com/video/203846482" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+<iframe src={{=project.Vimeo_Embed_Link}} width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 <h2>Comments</h2>
 {{for post in comments:}}

@@ -10,8 +10,10 @@ db.define_table('person',
                 Field('name', unique=True),
                 Field('email'),
                 Field('phone'),
+                #Field('project_id', 'reference project'),
+                #Field('conversation_keys'),
+                #Field('following_id', 'reference project'),
                 format = '%(person)s')
-
 
 #database for projects
 db.define_table('project',
@@ -19,6 +21,7 @@ db.define_table('project',
                 Field('title'),
                 Field('body', 'text'),
                 Field('image', 'upload'),
+                Field('category'),
                 Field('Youtube_Embed_Link'),
                 Field('Vimeo_Embed_Link'),
                 Field('created_on', 'datetime', default=request.now),
@@ -45,14 +48,16 @@ db.define_table('post',
 db.person.name.requires = [IS_NOT_EMPTY(), IS_NOT_IN_DB(db, db.person.name)]
 db.person.email.requires = [IS_NOT_EMPTY(), IS_EMAIL(error_message='Please enter a valid email!')]
 db.person.phone.requires = IS_MATCH('^1?((-)\d{3}-?|\(\d{3}\))\d{3}-?\d{4}$', error_message='Please enter in form 1-123-456-7899')
+#db.person.following_id.readable = db.person.person_id.writable = False
+#db.person.project_id.readable = db.person.project_id.writable = False
 
 
 db.project.title.requires = IS_NOT_IN_DB(db, 'project.title')
 db.project.body.requires = IS_NOT_EMPTY()
-db.project.image.requires = IS_EMPTY_OR(IS_IMAGE())
 db.project.person_id.readable = db.project.person_id.writable = False
 db.project.created_by.readable = db.project.created_by.writable = False
 db.project.created_on.readable = db.project.created_on.writable = False
+db.project.category.requires =  IS_IN_SET(["Software", "hardware", "Music", "Game", "Product", "Event", "Misc."])
 
 db.post.body.requires = IS_NOT_EMPTY()
 db.post.project_id.readable = db.post.project_id.writable = False

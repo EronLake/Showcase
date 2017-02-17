@@ -4,6 +4,7 @@
 | {{=A('edit', _href=URL('edit', args=request.args))}}
 | {{=A('documents', _href=URL('documents', args=request.args))}} ]<br />
 {{=MARKMIN(project.body)}}
+<br> {{=project.category}}<br/>
 <!--Show image-->
 <img width="200px"
      src="{{=URL('download', args=project.image)}}" />

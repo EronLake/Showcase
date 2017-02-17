@@ -109,7 +109,7 @@ I512
 sg5
 I00
 sg6
-I9
+I10
 sg7
 S'INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  '
 p41
@@ -126,7 +126,7 @@ I512
 sg5
 I00
 sg6
-I8
+I9
 sg7
 S'TIMESTAMP'
 p45
@@ -189,7 +189,7 @@ I512
 sg5
 I00
 sg6
-I6
+I7
 sg7
 S'CHAR(512)'
 p69
@@ -222,7 +222,7 @@ I512
 sg5
 I00
 sg6
-I7
+I8
 sg7
 S'CHAR(512)'
 p76
@@ -230,9 +230,25 @@ sg9
 I00
 sg10
 g24
-ssS'id'
+ssS'category'
 p77
 (dp78
+g4
+I512
+sg5
+I00
+sg6
+I6
+sg7
+S'CHAR(512)'
+p79
+sg9
+I00
+sg10
+g24
+ssS'id'
+p80
+(dp81
 g4
 I512
 sg5
@@ -241,10 +257,10 @@ sg6
 I1
 sg7
 S'INTEGER PRIMARY KEY AUTOINCREMENT'
-p79
+p82
 sg9
 I00
 sg10
 S'id'
-p80
+p83
 ss.
