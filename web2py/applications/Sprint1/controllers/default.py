@@ -2,12 +2,24 @@ def call():
     """exposes all registered services, including XML-RPC"""
     return service()
 
+def feed():
+    feed = db(db.project).select(orderby=~db.project.created_on, limitby=(0, 10))
+    return dict(feed=feed)
+
 #all people
-def index():
+def index1():
     projects = get_projects
     #return dict(people=people)
     projects = db().select(db.project.id, db.project.title, orderby=db.project.title)
     return dict(projects=projects)
+
+def index():
+    grid = SQLFORM.smartgrid(db.project, linked_tables=['project'],
+    paginate = 11,
+    editable=lambda r: r.user_id == auth.user_id,
+    deletable=lambda r: r.user_id == auth.user_id
+                            )
+    return dict(grid=grid)
 
 
 def get_projects():

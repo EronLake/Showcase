@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+<h1><!--Available Projects--> Available People</h1>
+[ {{=A('search', _href=URL('search'))}} ]<br />
+<ul>{{for person in people:}}
+     {{=LI(A(person.name, _href=URL('projects', args=person.id)))}}
+{{pass}}</ul>
+[ {{=A('create person', _href=URL('createPerson'))}} ] {{pass}}

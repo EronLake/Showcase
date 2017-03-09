@@ -9,11 +9,13 @@ auth.define_tables()
 crud = Crud(db)
 
 db.define_table('profile',
+                Field('user_id', 'reference auth_user'),
                 Field('profilepic', 'upload'),
                 )
 
 #database for projects
 db.define_table('project',
+                Field('profile_id', 'reference profile'),
                 Field('title'),
                 Field('body', 'text'),
                 Field('image', 'upload'),
@@ -43,11 +45,13 @@ db.define_table('post',
 
 
 
+#project validators
 db.project.title.requires = IS_NOT_IN_DB(db, 'project.title')
 db.project.body.requires = IS_NOT_EMPTY()
+db.project.profile_id.readable = db.project.profile_id.writable = False
 db.project.created_by.readable = db.project.created_by.writable = False
 db.project.created_on.readable = db.project.created_on.writable = False
-db.project.category.requires =  IS_IN_SET(["Software", "hardware", "Music","Video", "Game", "Product", "Event", "Misc."])
+db.project.category.requires =  IS_IN_SET(["Software", "Hardware", "Music","Video", "Game", "Product", "Event", "Misc."])
 
 db.post.body.requires = IS_NOT_EMPTY()
 db.post.project_id.readable = db.post.project_id.writable = False
