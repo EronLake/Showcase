@@ -1,3 +1,5 @@
+#OMG THIS IS A COMMMENT
+
 db = DAL('sqlite://storage.sqlite')
 
 #auth
