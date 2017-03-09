@@ -6,14 +6,9 @@ auth = Auth(db)
 auth.define_tables()
 crud = Crud(db)
 
-db.define_table('person',
-                Field('name', unique=True),
-                Field('email'),
-                Field('phone'),
-                #Field('project_id', 'reference project'),
-                #Field('conversation_keys'),
-                #Field('following_id', 'reference project'),
-                format = '%(person)s')
+db.define_table('profile',
+                Field('profilepic', 'upload'),
+                )
 
 #database for projects
 db.define_table('project',

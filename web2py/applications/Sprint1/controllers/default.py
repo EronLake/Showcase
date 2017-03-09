@@ -4,31 +4,34 @@ def call():
 
 #all people
 def index():
-    people = db().select(db.person.id, db.person.name, orderby=db.person.name)
-    return dict(people=people)
-    #projects = db().select(db.project.id, db.project.title, orderby=db.project.title)
-    #return dict(projects=projects)
+    projects = get_projects
+    #return dict(people=people)
+    projects = db().select(db.project.id, db.project.title, orderby=db.project.title)
+    return dict(projects=projects)
 
+
+def get_projects():
+    """get posts, in reverse chronological order"""
+    return db(db.project).select().sort(lambda p: p.updated_on, reverse=True)
 #create a new person
-def createPerson():
-    form = SQLFORM(db.person).process(next=URL('index'))
-    return dict(form=form)
+#def createPerson():
+#form = SQLFORM(db.person).process(next=URL('index'))
+#return dict(form=form)
 
 #create a project
 def createProject():
     form = SQLFORM(db.project).process(next=URL('projects'))
     return dict(form=form)
 
-#fix bug to only show projects by person id
 def projects():
-    this_project = db.project(request.args) 
+    this_project = db.project(request.args(0, cast=int))
     projects = db().select(db.project.id, db.project.title, orderby=db.project.title)
     return dict(project=this_project, projects=projects)
-    
-    #this_project = db.project(request.args(0, cast=int)) or redirect(URL('index'))
-    #db.post.project_id.default = this_project.id
-    #projects = db().select(db.project.id, db.project.title, orderby=db.project.title)
-    #return dict(projects=projects)
+
+#this_project = db.project(request.args(0, cast=int)) or redirect(URL('index'))
+#db.post.project_id.default = this_project.id
+#projects = db().select(db.project.id, db.project.title, orderby=db.project.title)
+#return dict(projects=projects)
 
 #show the project and comments
 def show():
@@ -42,7 +45,7 @@ def show():
 def edit():
     this_project = db.project(request.args(0, cast=int)) or redirect(URL('index'))
     form = SQLFORM(db.project, this_project).process(
-        next = URL('show', args=request.args))
+                                                     next = URL('show', args=request.args))
     return dict(form=form)
 
 @auth.requires_login()
