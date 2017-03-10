@@ -44,12 +44,12 @@ db.define_table('post',
 
 
 
-
 #project validators
 db.project.title.requires = IS_NOT_IN_DB(db, 'project.title')
 db.project.body.requires = IS_NOT_EMPTY()
 db.project.profile_id.readable = db.project.profile_id.writable = False
 db.project.created_by.readable = db.project.created_by.writable = False
+db.project.id.readable = False
 db.project.created_on.readable = db.project.created_on.writable = False
 db.project.category.requires =  IS_IN_SET(["Software", "Hardware", "Music","Video", "Game", "Product", "Event", "Misc."])
 

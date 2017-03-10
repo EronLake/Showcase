@@ -5,7 +5,7 @@
 ## Customize your APP title, subtitle and menus here
 #########################################################################
 
-response.logo = A(B('Showcase'),XML('&trade;&nbsp;'),
+response.logo = A(B('Showcase'),XML('&trade;'),
                   _class="brand",_href="http://127.0.0.1:8000/Sprint1/default/index")
 response.title = request.application.replace('_',' ').title()
 response.subtitle = ''

@@ -6,19 +6,33 @@ def feed():
     feed = db(db.project).select(orderby=~db.project.created_on, limitby=(0, 10))
     return dict(feed=feed)
 
-#all people
+#shows projects
 def index1():
     projects = get_projects
     #return dict(people=people)
     projects = db().select(db.project.id, db.project.title, orderby=db.project.title)
     return dict(projects=projects)
 
+#make smartgrid users and link projects
 def index():
-    grid = SQLFORM.smartgrid(db.project, linked_tables=['project'],
-    paginate = 11,
-    editable=lambda r: r.user_id == auth.user_id,
-    deletable=lambda r: r.user_id == auth.user_id
-                            )
+    default_sort_order = [db.project.id]
+    fields = (db.project.title,  db.auth_user.first_name)
+    headers = {
+        'project.title': 'Title',
+        ' db.auth_user.first_name': 'Body'
+    }
+
+
+    grid = SQLFORM.grid(db.project,
+                        fields=fields,
+                        headers=headers,
+                        orderby=default_sort_order,
+                        create=False,
+                        deletable=False,
+                        editable=False,
+                        details=False,
+                        links = [lambda row: A('View Post',_href=URL("default","show",args=[row.id]))],
+                        paginate=50)
     return dict(grid=grid)
 
 
