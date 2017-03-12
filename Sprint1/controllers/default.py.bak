@@ -13,7 +13,7 @@ def index1():
     projects = db().select(db.project.id, db.project.title, orderby=db.project.title)
     return dict(projects=projects)
 
-#make smartgrid users and link projects
+#make smartgrid show users and link projects
 def index():
     default_sort_order = [db.project.id]
     fields = (db.project.title,  db.auth_user.first_name)

@@ -302,5 +302,12 @@
 [2017-03-09 16:32:43] EDIT Sprint1/controllers/default.py: 0
 [2017-03-09 16:32:55] EDIT Sprint1/controllers/default.py: 0
 [2017-03-09 16:33:18] EDIT Sprint1/controllers/default.py: 0
+<<<<<<< HEAD
 [2017-03-12 15:33:27] EDIT Sprint1/views/layout.html: -8
 [2017-03-12 15:33:45] EDIT Sprint1/views/layout.html: -3
+=======
+[2017-03-12 15:29:09] EDIT Sprint1/views/default/index.html: 2
+[2017-03-12 15:56:31] EDIT Sprint1/controllers/default.py: 2
+[2017-03-12 15:56:57] CREATE default/profile.html: 0
+[2017-03-12 16:13:52] EDIT Sprint1/views/default/profile.html: 0
+>>>>>>> 19bc826a19815c7006353ffdd4f44f6bd148e851
