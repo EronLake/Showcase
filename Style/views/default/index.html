@@ -1,0 +1,69 @@
+<html>
+
+<head>
+    <title>CSS</title>
+    <style type = "text/css">
+         p{font-family:Arial, Helvetica, sans-serif;font-weight:200;font-size:20px;color:grey;text-align:center;}
+         h2{font-family:Arial, Helvetica, sans-serif;font-weight:900;font-size:40px;color:blue;text-align:center;}
+
+         h1{font-family:Arial, Helvetica, sans-serif;font-weight:900;font-size:20px;color:Purple;text-align:center;}
+         h3{font-family:Arial, Helvetica, sans-serif;font-weight:900;font-size:30px;color:Purple;text-align:center;}
+         h4{font-family:Arial, Helvetica, sans-serif;font-weight:900;font-size:20px;color:orange;text-align:center;}
+         .a{font-family:Arial, Helvetica, sans-serif;padding: 7px 12px; text-decoration: none; font-weight:500;font-size:20px;color: white; border-color:yellow; background-color: orange;text-align:center;}
+
+        .welcome{color:Purple;text-align:center;font-weight:900;}
+        .author{color:Purple;text-align:left;}
+        .content{text-align:left;font-weight:300;}
+        .content2{text-align:left;font-weight:60;color:Purple;}
+        .gold{font-family:Arial, Helvetica, sans-serif;font-weight:900;font-size:20px;color:orange;text-align:center;}
+        .icon{background-color: #eee;text-align:right}
+
+        div{position: relative;left: 275px; width: 900px; padding: 0px; border: 3px solid gray; background-color:#eee; border-radius: 10px; margin: 10;
+        padding-left: 50; padding-right: 50;}
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+{{if auth.user_id:}}
+
+<h2 class="welcome">Welcome, {{=db.auth_user[auth.user_id].first_name}}!</h2>
+
+    <p><a class ="a" href="{{=URL('default', 'create_post')}}">Add Post</a>
+    <p><a class ="a" href="{{=URL('default', 'user', args=['logout'])}}">Log Out</a></p>
+
+
+{{else:}}
+
+<h2 class="welcome">Welcome!</h2>
+<p><a class = "a" href="{{=URL('default', 'user', args=['login'])}}">Log In</a>
+</p>
+
+{{pass}}
+
+{{if post_count > 2:}}
+  <p>There are {{=post_count}} posts.</p>
+{{pass}}
+
+{{count = 1}}
+{{for row in db().select(db.post.ALL, orderby=~db.post.updated_on):}}
+<div>
+    <h3 class = "content2">Post {{=count}}:</h3>
+    <p class = "content"><b class = "gold">{{=row.post_subject}}: </b> {{=row.post_content}}</p>
+        {{if row.updated_on!=row.created_on:}}
+        <p class = "content">Author: <b class = "author">{{=db.auth_user[row.user_id].first_name}} {{=db.auth_user[row.user_id].last_name}}</b> Created on         {{=row.created_on}} Last updated {{=row.updated_on}}</p>
+        {{else:}}
+        <p class = "content">Author: <b class = "author">{{=db.auth_user[row.user_id].first_name}} {{=db.auth_user[row.user_id].last_name}}</b> Created on {{=row.created_on}}</p>
+        {{pass}}
+
+
+      {{if row.user_id==auth.user_id:}}
+        <p class = "icon"><a class = "icon" href="{{=URL('default', 'edit_post', args=[last_post.id])}}"><i class="glyphicon glyphicon-edit"style="font-size:30px;color:gray;"></i></a></p>
+      {{pass}}
+      {{count+=1}}
+      {{if count > 10: break}}
+</div>
+{{pass}}
+
+
+</html>
