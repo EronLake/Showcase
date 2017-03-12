@@ -1,0 +1,25 @@
+<html>
+
+<head>
+    <title>CSS</title>
+    <style type = "text/css">
+         p{font-family:Arial, Helvetica, sans-serif;font-weight:200;font-size:20px;color:grey;text-align:center;}
+         h2{font-family:Arial, Helvetica, sans-serif;font-weight:900;font-size:40px;color:blue;text-align:center;}
+
+         h1{font-family:Arial, Helvetica, sans-serif;font-weight:900;font-size:20px;color:Purple;text-align:center;}
+         h3{font-family:Arial, Helvetica, sans-serif;font-weight:900;font-size:30px;color:Purple;text-align:center;}
+         h4{font-family:Arial, Helvetica, sans-serif;font-weight:900;font-size:20px;color:orange;text-align:center;}
+         a{font-family:Arial, Helvetica, sans-serif;font-weight:900;font-size:20px;color:blue;text-align:center;}
+
+        .welcome{color:Purple;text-align:center;}
+        .author{color:Purple;text-align:center;}
+    </style>
+</head>
+
+<h3>Edit your comment:</h3>
+
+<p>{{=form}}</p>
+
+    <p><a href="{{=URL('default', 'index')}}">Home</a></p>p>
+
+</html>
