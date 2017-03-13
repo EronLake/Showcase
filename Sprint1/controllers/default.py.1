@@ -2,15 +2,17 @@ def call():
     """exposes all registered services, including XML-RPC"""
     return service()
 
-def profile():
+"""def profile():
     projects = get_projects()
     last_project = projects.first()
     project_count = len(projects)
     
     print "project_count: %s" % project_count
     
-    return dict(profile=profile, projects=projects, last_project=last_project)
+    return dict(profile=profile, last_project=last_project, project_count=project_count)"""
 
+#def get_projects():
+    #return db(db.project).select().sort(lambda p: p.created_on, reverse=True)
 
 def feed():
     feed = db(db.project).select(orderby=~db.project.created_on, limitby=(0, 10))
