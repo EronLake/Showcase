@@ -2,26 +2,50 @@
 <html>
     <head>
         <style>
+
             a:link, a:visited {
-                background-color: black;
+                background-color: orange;
                 color: white;
-                padding: 14px 25px;
+                padding: 6px 10px;
                 text-align: center;
                 text-decoration: none;
                 display: inline-block;
             }
+            
+            #menu a {
+                color: white;
+                padding: 2px 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                position: relative;left: 275px;
+            }
+            
+            #logo h1 {
+                font-size: 38px;
+                color: White;
+            }
+            
+            #menu ul{
+                border:black
+            }
 
             a:hover, a:active {
-                background-color: black;
+                background-color: purple;
             }
 
             .post{
-                background-color: lightgrey;
+                background-color: white;
                 text-align: center;
-                border: 3px solid gray;
-                border-radius: 30px;
+                border: 2px solid gray;
+                border-radius: 2px;
                 width:100%;
-                margin:5 auto;
+                padding: 10px;
+                margin: 5;
+                padding-left: 10px;
+                padding-right: 10px;
+                position: relative;
+                left: -100px;
             }
             .post p{
                 color: black;
@@ -32,22 +56,19 @@
                 color: blue;
                 font: 80% Helvetica;
             }
+            .new_line:{margin: 10;}
         </style>
     </head>
     <body>
-        Hi
+        Your Feed
         {{for post in feed:}}
         <div class="post">
-            {{=post}}
-            <br/>
-            <p>
-                {{=post.body}}
-            </p>
-            <p2>
-                {{=post.created_on}}
-            </p2>
+            {{=post.body}}
+            <p></p>
+            {{=post.created_on}}{{=post.created_by}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a href="{{=URL('default','projects',args=post.id)}}">{{=post.id}}</a>
         </div>
+        <p calss = "new_line"></p>
         {{pass}}
     </body>
 </html>
