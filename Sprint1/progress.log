@@ -302,7 +302,12 @@
 [2017-03-09 16:32:43] EDIT Sprint1/controllers/default.py: 0
 [2017-03-09 16:32:55] EDIT Sprint1/controllers/default.py: 0
 [2017-03-09 16:33:18] EDIT Sprint1/controllers/default.py: 0
+<<<<<<< HEAD
+[2017-03-12 15:33:27] EDIT Sprint1/views/layout.html: -8
+[2017-03-12 15:33:45] EDIT Sprint1/views/layout.html: -3
+=======
 [2017-03-12 15:29:09] EDIT Sprint1/views/default/index.html: 2
+<<<<<<< HEAD
 [2017-03-13 00:13:55] EDIT Sprint1/views/default/feed.html: 0
 [2017-03-13 00:14:04] EDIT Sprint1/views/default/feed.html: 0
 [2017-03-13 00:14:22] EDIT Sprint1/views/default/feed.html: 0
@@ -561,3 +566,48 @@
 [2017-03-13 03:30:06] EDIT Sprint1/views/default/feed.html: 0
 [2017-03-13 03:31:05] EDIT Sprint1/views/default/feed.html: 0
 [2017-03-13 03:31:07] EDIT Sprint1/views/default/feed.html: 0
+=======
+[2017-03-12 15:56:31] EDIT Sprint1/controllers/default.py: 2
+[2017-03-12 15:56:57] CREATE default/profile.html: 0
+[2017-03-12 16:13:52] EDIT Sprint1/views/default/profile.html: 0
+<<<<<<< HEAD
+[2017-03-12 16:37:24] EDIT Sprint1/views/default/profile.html: 1
+[2017-03-12 16:39:58] EDIT Sprint1/views/default/profile.html: 1
+[2017-03-12 16:41:44] EDIT Sprint1/views/default/profile.html: 0
+[2017-03-12 16:44:28] EDIT Sprint1/views/default/profile.html: 0
+[2017-03-12 16:44:49] EDIT Sprint1/views/default/profile.html: 0
+[2017-03-12 16:44:59] EDIT Sprint1/views/default/profile.html: 0
+[2017-03-12 16:56:09] EDIT Sprint1/views/default/profile.html: 0
+[2017-03-12 17:01:24] EDIT Sprint1/controllers/default.py: 3
+[2017-03-12 17:02:01] EDIT Sprint1/controllers/default.py: 0
+[2017-03-12 17:06:13] EDIT Sprint1/controllers/default.py: 3
+[2017-03-12 17:06:19] EDIT Sprint1/views/default/profile.html: 0
+[2017-03-12 17:23:49] EDIT Sprint1/controllers/default.py: 0
+[2017-03-12 17:24:41] EDIT Sprint1/controllers/default.py: 0
+[2017-03-12 17:25:36] EDIT Sprint1/controllers/default.py: 0
+[2017-03-12 17:29:48] EDIT Sprint1/controllers/default.py: 0
+[2017-03-12 17:41:55] EDIT Sprint1/models/db.py: 1
+[2017-03-12 17:42:16] EDIT Sprint1/models/db.py: 0
+[2017-03-12 17:46:16] EDIT Sprint1/controllers/default.py: 0
+[2017-03-12 17:50:08] EDIT Sprint1/models/db.py: 0
+[2017-03-12 17:59:54] EDIT Sprint1/controllers/default.py: 0
+[2017-03-12 18:01:14] EDIT Sprint1/controllers/default.py: 0
+[2017-03-12 18:02:29] EDIT Sprint1/views/default/profile.html: 0
+[2017-03-12 18:05:12] EDIT Sprint1/views/default/profile.html: 3
+[2017-03-12 18:09:39] EDIT Sprint1/views/default/profile.html: 3
+[2017-03-12 18:15:35] EDIT Sprint1/controllers/default.py: 1
+[2017-03-12 18:16:49] EDIT Sprint1/controllers/default.py: 0
+[2017-03-12 18:17:55] EDIT Sprint1/controllers/default.py: 0
+[2017-03-12 18:18:48] EDIT Sprint1/controllers/default.py: 0
+[2017-03-12 18:19:27] EDIT Sprint1/controllers/default.py: -1
+[2017-03-12 18:19:52] EDIT Sprint1/views/default/profile.html: 1
+[2017-03-12 18:21:06] EDIT Sprint1/views/default/profile.html: -3
+[2017-03-12 18:21:22] EDIT Sprint1/views/default/profile.html: -1
+[2017-03-12 18:24:45] EDIT Sprint1/controllers/default.py: -2
+[2017-03-12 18:25:17] EDIT Sprint1/controllers/default.py: 0
+[2017-03-12 18:26:34] EDIT Sprint1/views/default/profile.html: 0
+=======
+>>>>>>> 19bc826a19815c7006353ffdd4f44f6bd148e851
+>>>>>>> f179ed5565a11bade86067c7bd98e903db187020
+>>>>>>> 545db7d2bd3cd2b88b0bdd0c23f6f67e5942dde8
+[2017-03-13 03:39:49] EDIT Sprint1/views/layout.html: -243

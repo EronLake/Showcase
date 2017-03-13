@@ -1,4 +1,5 @@
 #OMG THIS IS A COMMMENT
+import datetime
 
 db = DAL('sqlite://storage.sqlite')
 
@@ -22,7 +23,7 @@ db.define_table('project',
                 Field('category'),
                 Field('Youtube_Embed_Link'),
                 Field('Vimeo_Embed_Link'),
-                Field('created_on', 'datetime', default=request.now),
+                Field('created_on', 'datetime', default=datetime.datetime.utcnow()),
                 Field('created_by', 'reference auth_user', default=auth.user_id),
                 format='%(title)s')
 
@@ -49,6 +50,7 @@ db.project.title.requires = IS_NOT_IN_DB(db, 'project.title')
 db.project.body.requires = IS_NOT_EMPTY()
 db.project.profile_id.readable = db.project.profile_id.writable = False
 db.project.created_by.readable = db.project.created_by.writable = False
+db.project.id.readable = False
 db.project.created_on.readable = db.project.created_on.writable = False
 db.project.category.requires =  IS_IN_SET(["Software", "Hardware", "Music","Video", "Game", "Product", "Event", "Misc."])
 

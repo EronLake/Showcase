@@ -1,4 +1,5 @@
 #OMG THIS IS A COMMMENT
+import datetime
 
 db = DAL('sqlite://storage.sqlite')
 
@@ -9,7 +10,7 @@ auth.define_tables()
 crud = Crud(db)
 
 db.define_table('profile',
-                Field('user_id', 'reference auth_user'),
+                Field('user_id', 'reference auth_user', default=auth.user_id),
                 Field('profilepic', 'upload'),
                 )
 
@@ -22,7 +23,7 @@ db.define_table('project',
                 Field('category'),
                 Field('Youtube_Embed_Link'),
                 Field('Vimeo_Embed_Link'),
-                Field('created_on', 'datetime', default=request.now),
+                Field('created_on', 'datetime', default=datetime.datetime.utcnow()),
                 Field('created_by', 'reference auth_user', default=auth.user_id),
                 format='%(title)s')
 
