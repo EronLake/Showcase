@@ -9,7 +9,7 @@
 
 
 
-    <a href="{{=URL('default', 'edit_post', args=[last_post.id])}}">
+ <a href="{{=URL('default', 'edit_post', args=[last_post.id])}}">
              edit </a>
 {{pass}}
 
