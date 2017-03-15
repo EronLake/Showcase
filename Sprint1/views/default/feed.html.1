@@ -4,41 +4,23 @@
         <style>
 
             a:link, a:visited {
-                background-color: orange;
+                background-color: black;
                 color: white;
-                padding: 6px 10px;
+                padding: 14px 25px;
                 text-align: center;
                 text-decoration: none;
                 display: inline-block;
-            }
-            
-            #menu a {
-                color: white;
-                padding: 2px 10px;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                position: relative;left: 275px;
-            }
-            
-            #logo h1 {
-                font-size: 38px;
-                color: White;
-            }
-            
-            #menu ul{
-                border:black
             }
 
             a:hover, a:active {
-                background-color: purple;
+                background-color: black;
             }
 
             .post{
                 background-color: white;
                 text-align: center;
                 border: 2px solid gray;
-                border-radius: 2px;
+                border-radius: 3px;
                 width:100%;
                 padding: 10px;
                 margin: 5;
@@ -60,12 +42,17 @@
         </style>
     </head>
     <body>
-        Your Feed 
+        Hi
         {{for post in feed:}}
         <div class="post">
-            {{=post.body}}
-            <p></p>
-            {{=post.created_on}}{{=post.created_by}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {{=post}}
+            <br/>
+            <p>
+                {{=post.body}}
+            </p>
+            <p2>
+                {{=post.created_on}}
+            </p2>
             <a href="{{=URL('default','projects',args=post.id)}}">{{=post.id}}</a>
         </div>
         <p calss = "new_line"></p>

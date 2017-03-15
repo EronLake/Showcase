@@ -4,14 +4,15 @@
 | {{=A('edit', _href=URL('edit', args=request.args))}}
 | {{=A('documents', _href=URL('documents', args=request.args))}} ]<br />
 {{=MARKMIN(project.body)}}
-<br> src={{=project.category}}<br/>
+<br> {{=project.category}}<br/>
 <!--Show image-->
 <img width="200px"
      src="{{=URL('download', args=project.image)}}" />
 
 <!--Show Embedded youtube video-->
 <br>
-<iframe width="560" height="315" src={{=project.Youtube_Embed_Link}} frameborder="0" allowfullscreen></iframe>
+
+{{=IFRAME(_src=project.Youtube_Embed_Link)}}
 
 <!-- Show Embedded vimeo-->
 <br>
