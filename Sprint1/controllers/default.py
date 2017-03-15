@@ -9,7 +9,7 @@ def profile():
     
     print "project_count: %s" % project_count
     
-    return dict(profile=profile, projects=projects, last_project=last_project)
+    return dict(projects=projects, last_project=last_project,project_count = project_count)
 
 
 def feed():
