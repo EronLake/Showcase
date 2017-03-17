@@ -1,16 +1,26 @@
 {{extend 'layout.html'}}
 
-
+<html>
 {{if auth.user_id:}}
 <h2 class="welcome">{{=db.auth_user[auth.user_id].first_name}}  {{=db.auth_user[auth.user_id].last_name}}</h2>
-
 {{pass}}
 
 
+{{if project_count > 0:}}
+<h3>Last Project:</h3>
 
+  <h4>{{=last_project.project_title}}</h4>
+  <p> {{=last_project.project_body}}</p>
+  <p>Created {{=last_project.created_on}} by
+     <b>{{=db.auth_user[last_project.user_id].first_name}}</b></p>
 
-<!-- <a href="{{=URL('default', 'edit_post', args=[last_post.id])}}">
-             edit </a>
+  {{if last_project.user_id==auth.user_id:}}
+
+               <a href="{{=URL('default', 'profile', args=[last_project.id])}}">
+                edit
+               </a>
 {{pass}}
 
-{{=BEAUTIFY(response._vars)}}
+
+</html>
+<!--{{=BEAUTIFY(response._vars)}}-->

@@ -1,6 +1,8 @@
+"""
 def call():
-    """exposes all registered services, including XML-RPC"""
+    exposes all registered services, including XML-RPC
     return service()
+"""
 
 def profile():
     projects = get_projects()
@@ -9,8 +11,7 @@ def profile():
     
     print "project_count: %s" % project_count
     
-    return dict(profile=profile, projects=projects, last_project=last_project,project_count = project_count)
-    return dict(profile=profile, projects=projects, last_project=last_project)
+    return dict(projects=projects, last_project=last_project,project_count = project_count)
 
 
 def feed():
@@ -49,7 +50,7 @@ def index():
 
 def get_projects():
     """get posts, in reverse chronological order"""
-    return db(db.project).select().sort(lambda p: p.updated_on, reverse=True)
+    return db.project.select().sort(lambda p: p.created_on, reverse=True)
 #create a new person
 #def createPerson():
 #form = SQLFORM(db.person).process(next=URL('index'))
