@@ -932,3 +932,9 @@
 [2017-03-16 23:01:28] EDIT Sprint1/views/default/add_collaborator.html: 0
 [2017-03-16 23:01:31] EDIT Sprint1/views/default/show.html: 0
 >>>>>>> 166ae6d5ec7a8f723fb7a6850935b0235704b720
+[2017-03-17 02:23:31] EDIT Sprint1/views/default/feed.html: 1
+[2017-03-17 02:30:17] EDIT Sprint1/views/default/profile.html: 1
+[2017-03-17 02:35:33] EDIT Sprint1/views/layout.html: -17
+[2017-03-17 02:40:04] EDIT Sprint1/views/layout.html: -75
+[2017-03-17 02:40:15] EDIT Sprint1/views/layout.html: 0
+[2017-03-17 02:40:39] EDIT Sprint1/views/layout.html: 0

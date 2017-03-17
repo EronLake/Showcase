@@ -1,0 +1,6 @@
+{{extend 'layout.html'}}
+<h1><!--Available Projects--> View Users and Projects</h1>
+{{=grid}}
+[ {{=A('create project', _href=URL('default', 'createProject'))}} ] {{pass}}
+[ {{=A('View Profile', _href=URL('profile'))}} ] {{pass}}
+[<a href="{{=URL('default', 'feed')}}">Check out your feed</a>]

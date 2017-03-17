@@ -1,0 +1,11 @@
+
+{{extend 'layout.html'}}
+
+{{extend 'layout.html'}}
+
+<form>
+   <label for="name">Your name, please:</label>
+   <input name="name" onkeyup="" />
+   <button name='submit' onclick="ajax('{{=URL('default', 'echo2')}}', ['name'], ':eval')">Submit</button>
+</form>
+<div id="target"></div>

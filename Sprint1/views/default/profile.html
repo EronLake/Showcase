@@ -15,7 +15,8 @@
         {{if auth.user_id == project.created_by:}}
           
         <div class="welcome">
-            <b class = "pt"> <img src="{{=URL('download', args=project.image)}}"</img> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <b class = "pt"> <img src="{{=URL('download', args=project.image)}}"
+                                  width="200px" /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <a  href="{{=URL('default','projects',args=project.id)}}">{{=project.title}} </a></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             created by: {{=project.created_by}}
             <p calss = "new_line"></p>

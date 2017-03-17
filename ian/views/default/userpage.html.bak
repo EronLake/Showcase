@@ -1,0 +1,12 @@
+{{extend 'layout.html'}}
+<style>
+img{
+float:left;
+margin: 40px 0 0 0;
+}
+</style>
+<div>
+{{if auth_user.profilepic:}}
+        <img height="125px" src="{{=URL('download',args=auth_user.profilepic)}}">
+{{pass}}
+</div>

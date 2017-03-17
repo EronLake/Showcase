@@ -1,0 +1,72 @@
+#OMG THIS IS A COMMMENT
+import datetime
+
+db = DAL('sqlite://storage.sqlite')
+
+#auth
+from gluon.tools import *
+auth = Auth(db)
+auth.settings.extra_fields['auth_user']= [
+  Field('profilepic','upload',requires = IS_IMAGE()),
+  Field('bio','text')]
+
+auth.define_tables()
+crud = Crud(db)
+
+
+#database for projects
+db.define_table('profile',
+                Field('user_id', 'reference auth_user', default=auth.user_id),
+                Field('profilepic', 'upload'),
+                Field('bio', 'text')
+                )
+
+db.define_table('project',
+                Field('profile_id', 'reference profile'),
+                Field('title'),
+                Field('body', 'text'),
+                Field('image', 'upload'),
+                Field('category'),
+                Field('Youtube_Embed_Link'),
+                Field('Vimeo_Embed_Link'),
+                Field('created_on', 'datetime', default=datetime.datetime.utcnow()),
+                Field('created_by', 'reference auth_user', default=auth.user_id),
+                format='%(title)s')
+
+#db for documents on each project
+db.define_table('document',
+                Field('project_id', 'reference project'),
+                Field('name'),
+                Field('file', 'upload'),
+                Field('created_on', 'datetime', default=request.now),
+                Field('created_by', 'reference auth_user', default=auth.user_id),
+                format='%(name)s')
+
+#db for posts on each project
+db.define_table('post',
+                Field('project_id', 'reference project'),
+                Field('body', 'text'),
+                Field('created_on', 'datetime', default=request.now),
+                Field('created_by', 'reference auth_user', default=auth.user_id))
+
+
+
+#project validators
+db.profile.user_id.readable = db.profile.user_id.writable = False
+db.project.title.requires = IS_NOT_IN_DB(db, 'project.title')
+db.project.body.requires = IS_NOT_EMPTY()
+db.project.profile_id.readable = db.project.profile_id.writable = False
+db.project.created_by.readable = db.project.created_by.writable = False
+db.project.id.readable = False
+db.project.created_on.readable = db.project.created_on.writable = False
+db.project.category.requires =  IS_IN_SET(["Software", "Hardware", "Music","Video", "Game", "Product", "Event", "Misc."])
+
+db.post.body.requires = IS_NOT_EMPTY()
+db.post.project_id.readable = db.post.project_id.writable = False
+db.post.created_by.readable = db.post.created_by.writable = False
+db.post.created_on.readable = db.post.created_on.writable = False
+
+db.document.name.requires = IS_NOT_IN_DB(db, 'document.name')
+db.document.project_id.readable = db.document.project_id.writable = False
+db.document.created_by.readable = db.document.created_by.writable = False
+db.document.created_on.readable = db.document.created_on.writable = False

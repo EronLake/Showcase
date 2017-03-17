@@ -67,8 +67,8 @@
         Your Feed
         {{for post in feed:}}
         <div class="post">
-            <b class = "pt"> <img src="{{=URL('download', args=post.image)}}"</img>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a  href="{{=URL('default','projects',args=post.id)}}">{{=post.title}} </a></b>
+            <b class = "pt"> <img src="{{=URL('download', args=post.image)}}"</img> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a  href="{{=URL('default','projects',args=post.id)}}">{{=post.title}} </a></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             created by: {{=post.created_by}}
             <p calss = "new_line"></p>
             {{=post.body}}
