@@ -1,0 +1,131 @@
+{{extend 'layout.html'}}
+<html>
+    <head>
+        <link href="{{=URL('static','css/myapp.css')}}"      rel="stylesheet" type="text/css"/>
+<!--        <style>
+            a:link, a:visited {
+                background-color: orange;
+                color: white;
+                padding: 6px 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+            }
+
+            a:hover, a:active {
+                background-color: purple;
+            }
+
+            .post{
+                background-color: white;
+                border: 2px solid gray;
+                border-radius: 2px;
+                width:100%;
+                padding: 10px;
+                margin: 5;
+                padding-left: 10px;
+                padding-right: 10px;
+                position: relative;
+                left: -100px;
+            }
+            .post p{
+                color: black;
+                font: 100% Helvetica;
+            }
+            .post p2{
+                text-align:left;
+                color: blue;
+                font: 80% Helvetica;
+            }
+            .new_line:{margin: 10;}
+
+            .pt{text-align: left;}
+            .cat {background-color: purple; color: white; padding: 6px 10px; text-align: left;text-decoration: none; display: inline-block;}
+            .cr_on {text-align: right; text-decoration: none; display: inline-block;}
+
+        </style>-->
+    </head>
+<h1>{{=project.title}}</h1>
+[ {{=A('index', _href=URL('index', args=request.args))}}
+| {{<a href="{{=URL('default', 'following')}}">Follow a post</a>
+| {{if project.created_by==auth.user_id:}}
+    {{=A('edit', _href=URL('edit', args=request.args))}}
+   |{{=A('documents', _href=URL('documents', args=request.args))}}
+   |<a href="{{=URL('default', 'add_collaborator')}}">Add a collaborator</a>]
+    | {{for collab in collaborators:}}
+        {{a=collab.user_id}}
+        {{if auth.user_id==a:}}
+            |<a href="{{=URL('default', 'add_collaborator')}}">Add a collaborator</a>]
+        {{pass}}
+        <!--{{=A('edit', _href=URL('edit', args=request.args))}}
+        |{{=A('documents', _href=URL('documents', args=request.args))}}-->
+    {{pass}}
+{{pass}}<br />
+<br><h2>{{=project.category}}
+</h2><br/>
+{{=MARKMIN(project.body)}}
+
+<!--
+<img width="200px"
+     src="{{=URL('download', args=project.image)}}" />
+
+
+<br>
+
+<iframe src={{=project.Youtube_Embed_Link}} width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+
+
+<br>
+<iframe src={{=project.Vimeo_Embed_Link}} width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+-->
+{{if project.image:}}
+    <img width="200px" src="{{=URL('download', args=project.image)}}" />
+    <br>
+{{pass}}
+{{if project.Youtube_Embed_Link:}}
+    <br>
+    <iframe width="560" height="315" src={{=project.Youtube_Embed_Link}} frameborder="0" allowfullscreen></iframe>
+    <br>
+{{pass}}
+{{if project.Vimeo_Embed_Link:}}
+    <br>
+    <iframe src={{=project.Vimeo_Embed_Link}} width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    <br>
+{{pass}}
+<h2>Post History</h2>
+{{for post in posts:}}
+<div class = "post">
+    <p>{{=db.auth_user[post.created_by].first_name}} on {{=post.created_on}} says</p>
+    {{=post.body}}
+    {{if post.Youtube_Embed_Link:}}
+        <br>
+        <iframe width="560" height="315" src={{=post.Youtube_Embed_Link}} frameborder="0" allowfullscreen></iframe>
+        <br>
+    {{pass}}
+    {{if post.Vimeo_Embed_Link:}}
+        <br>
+        <iframe src={{=post.Vimeo_Embed_Link}} width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        <br>
+    {{pass}}
+    {{for comm in comments:}}
+                {{if comm.document_id == post.id:}}
+                <div class="comment">
+                    <p>{{=db.auth_user[comm.created_by].first_name}} on {{=comm.created_on}} says</p>
+                    {{=comm.body}}
+                </div>
+                {{pass}}
+            {{pass}}
+            <br>
+</div>
+{{pass}}
+
+<!--<h2>Comments</h2>
+{{for post in comments:}}
+  <p>{{=db.auth_user[post.created_by].first_name}} on {{=post.created_on}}
+     says <i>{{=post.body}}</i></p>
+{{pass}}-->
+{{if auth.user_id:}}
+<h2>Make a new Post</h2>
+    {{=form}}
+{{pass}}
+</html>

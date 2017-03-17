@@ -1,0 +1,86 @@
+{{extend 'layout.html'}}
+
+<div id="title" class="title" align="center">
+<div class="post_listing center">
+<!-- Check if user is logged in -->
+{{if auth.user_id:}}
+</div>
+    
+    
+    <!-- New post button -->
+    
+    <div id="title" class="title" align="center">
+    
+        <h1 >Click the green button below to post the new items</h1>
+<!--        <HR SIZE=3></HR>-->
+        
+    </div>
+    
+    
+    
+    <div id="title" class="title" align="center">
+        <a href="{{=URL('default', 'edit')}}" class="btn btn-success">
+            <i class="fa fa-plus"></i> Post New Item
+        </a>
+    </div>
+
+    <!-- List of posts when logged in -->
+    <div class="post_list">
+    {{for (post, name, created) in posts:}}
+        <div class="post text-left">
+            <!-- Here goes the code to display an individual post. -->
+            <div class="post_content">{{=post.post_content}}</div>
+
+            <div class="post_info">
+              <span> Author: {{=name}} </span>
+              <span> Posted: {{=created}} </span>
+
+              <!-- Show the edited time if updated_on != created_on -->
+              {{if post.updated_on != post.created_on:}}
+                  <span>Updated On: {{=post.updated_on_human}}</span>
+              {{pass}}
+
+              <!-- Show edit button if logged in user made the post -->
+              {{if post.user_email == auth.user.email:}}
+                  <span>
+                    <a href="{{=URL('default', 'edit', args=[post.id], vars=dict(edit='true'))}}">
+                        <i class="fa fa-pencil-square-o fa-lg"></i> Edit
+                    </a>
+                  </span>
+              {{pass}}
+            </div>
+
+        </div>
+
+    {{pass}}
+    </div>
+
+<!-- Not logged in -->
+{{else:}}
+
+    <!-- Log in button -->
+    <div class="post_list_header text-right">
+        <a href="{{=URL('default', 'user', args=['login'])}}" class="btn btn-success">Log In</a>
+    </div>
+
+    <!-- Post list when not logged in -->
+    <div class="post_list">
+    {{for (post, name, created) in posts:}}
+        <div class="post text-left">
+            <!-- Here goes the code to display an individual post. -->
+            <div class="post_content">{{=post.post_content}}</div>
+            <div class="post_info">
+              <span> Author: {{=name}} </span>
+              <span> Posted: {{=created}} </span>
+
+              {{if post.updated_on != post.created_on:}}
+                  <span>Updated On: {{=post.updated_on_human}}</span>
+              {{pass}}
+            </div>
+        </div>
+    {{pass}}
+    </div>
+
+{{pass}}
+
+</div>
