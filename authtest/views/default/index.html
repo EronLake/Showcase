@@ -1,0 +1,67 @@
+
+<html>
+
+<head>
+</head>
+
+{{if auth.user_id:}}
+
+<h2>Hello, {{=db.auth_user[auth.user_id].first_name}}!</h2>
+
+<p>You are logged in. 
+   <br/>
+   Please <a href="{{=URL('default', 'create_post')}}">leave us a comment</a>.
+   <br/>
+   You may <a href="{{=URL('default', 'user', args=['logout'])}}">Log Out</a>. 
+</p>
+
+{{else:}}
+
+<h2>Hello!</h2>
+<p>Would you like to <a href="{{=URL('default', 'user', args=['login'])}}">Log In</a>? 
+</p>
+
+{{pass}}
+
+{{if post_count > 2:}}
+  <p>There are {{=post_count}} posts.</p>
+{{pass}}
+
+<p>Exciting, isn't it? </p>
+
+
+{{if post_count > 0:}}
+<h3>Last post:</h3>
+
+  <h4>{{=last_post.post_subject}}</h4>
+  <p> {{=last_post.post_content}}</p>
+  <p>Last updated {{=last_post.updated_on}} by 
+     <b>{{=db.auth_user[last_post.user_id].first_name}}</b></p>
+
+  {{if last_post.user_id==auth.user_id:}}
+        
+               <a href="{{=URL('default', 'edit_post', args=[last_post.id])}}">
+                edit
+               </a>
+        
+  {{pass}} 
+
+  {{if post_count > 1:}}
+  
+  <h3>First post:</h3>
+      <h4>{{=first_post.post_subject}}</h4>
+      <p> {{=first_post.post_content}}</p>
+      <p>Last updated {{=first_post.updated_on}} by 
+         <b>{{=db.auth_user[first_post.user_id].first_name}}</b></p>   
+  {{pass}}
+      {{if first_post.user_id==auth.user_id:}}
+            
+               <a href="{{=URL('default', 'edit_post', args=[first_post.id])}}">
+                  edit
+               </a>
+            
+      {{pass}} 
+{{pass}}
+
+</html>
+
