@@ -1,0 +1,18 @@
+
+{{extend 'layout.html'}}
+<h5>Your messages:</h5>
+<div id="target"></div>
+
+<form id="myform">
+  <label for="your_message">Your message</label>
+  <input name="your_message" id="your_message" />
+  <input type="submit" />
+</form>
+
+<script>
+jQuery('#myform').submit(function() {
+  ajax('{{=URL('new_post')}}',
+       ['your_message'], 'target');
+  return false;
+});
+</script>

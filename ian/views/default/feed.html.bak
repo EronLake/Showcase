@@ -1,0 +1,74 @@
+{{extend 'layout.html'}}
+<html>
+    <head>
+        <style>
+
+            a:link, a:visited {
+                background-color: orange;
+                color: white;
+                padding: 6px 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+            }
+            
+            #menu a {
+                color: white;
+                padding: 2px 10px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                position: relative;left: 275px;
+            }
+            
+            #logo h1 {
+                font-size: 38px;
+                color: White;
+            }
+            
+            #menu ul{
+                border:black
+            }
+
+            a:hover, a:active {
+                background-color: purple;
+            }
+
+            .post{
+                background-color: white;
+                text-align: center;
+                border: 2px solid gray;
+                border-radius: 2px;
+                width:100%;
+                padding: 10px;
+                margin: 5;
+                padding-left: 10px;
+                padding-right: 10px;
+                position: relative;
+                left: -100px;
+            }
+            .post p{
+                color: black;
+                font: 100% Helvetica;
+            }
+            .post p2{
+                text-align:left;
+                color: blue;
+                font: 80% Helvetica;
+            }
+            .new_line:{margin: 10;}
+        </style>
+    </head>
+    <body>
+        Your Feed 
+        {{for post in feed:}}
+        <div class="post">
+            {{=post.body}}
+            <p></p>
+            {{=post.created_on}}{{=post.created_by}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="{{=URL('default','projects',args=post.id)}}">{{=post.id}}</a>
+        </div>
+        <p calss = "new_line"></p>
+        {{pass}}
+    </body>
+</html>

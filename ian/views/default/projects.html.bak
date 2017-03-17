@@ -1,0 +1,7 @@
+{{extend 'layout.html'}}
+    <h1>Projects: </h1>
+[ {{=A('index', _href=URL('index', args=request.args))}}
+| {{=A('create project', _href=URL('createProject', args=request.args))}} ]
+<ul>{{for project in projects:}}
+     {{=LI(A(project.title, _href=URL('show', args=project.id)))}}
+{{pass}}</ul>

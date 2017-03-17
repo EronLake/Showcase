@@ -1,0 +1,8 @@
+{{extend 'layout.html'}}
+
+
+{{if auth.user_id:}}
+<img width="200px"
+     src="{{=URL('download', args=picture)}}" />
+<h2 class="welcome">{{=db.auth_user[auth.user_id].first_name}}  {{=db.auth_user[auth.user_id].last_name}}</h2>
+{{pass}}

@@ -1,0 +1,16 @@
+
+{{extend 'layout.html'}}
+
+{{extend 'layout.html'}}
+{{=form}}
+<script>
+jQuery(document).ready(function(){
+   if(jQuery('#taxpayer_married').prop('checked'))
+        jQuery('#taxpayer_spouse_name__row').show();
+   else jQuery('#taxpayer_spouse_name__row').hide();
+   jQuery('#taxpayer_married').change(function(){
+        if(jQuery('#taxpayer_married').prop('checked'))
+            jQuery('#taxpayer_spouse_name__row').show();
+        else jQuery('#taxpayer_spouse_name__row').hide();});
+});
+</script>
