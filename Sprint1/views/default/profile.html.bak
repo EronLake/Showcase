@@ -2,7 +2,7 @@
 
 <html>
 {{if auth.user_id:}}
-<h2 class="welcome">{{=db.auth_user[auth_user_id].first_name}}  {{=db.auth_user[auth_user_id].last_name}}</h2>
+<h2 class="welcome">{{=db.auth_user[auth.user_id].first_name}}  {{=db.auth_user[auth.user_id].last_name}}</h2>
 
 {{pass}}
 
@@ -12,13 +12,32 @@
 
 <h4>{{=last_project.title}}</h4>
   <p> {{=last_project.body}}</p>
-  <p>Created {{=last_project.created_on}} by
-</p>
+  <p>Created {{=last_project.created_on}}</p>
 
+    
+<h3>Other Projects:</h3>
+{{if auth.user_id == project.created_by:}}
+
+    {{for project in db().select(db.project.ALL, orderby=~db.project.created_on):}}
+          
+        <div class="welcome">
+            <b class = "pt"> <img src="{{=URL('download', args=project.image)}}"</img> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a  href="{{=URL('default','projects',args=project.id)}}">{{=project.title}} </a></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            created by: {{=project.created_by}}
+            <p calss = "new_line"></p>
+            {{=project.body}}
+            <p></p>
+           <b class = "cat"> Category: {{=project.category}}</b>
+           <b class = "cr_on"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Created on: {{=project.created_on}}</b>
+            {{if(project.created_by):}}{{pass}}
+        </div>
+        <p calss = "new_line"></p>
+    
 
                <a href="{{=URL('default', 'profile', args=[last_project.id])}}">
                 edit
                </a>
+{{pass}}
 {{pass}}
 
 {{pass}}
