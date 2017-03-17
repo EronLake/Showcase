@@ -61,20 +61,20 @@ p20
 (dp21
 S'sortable'
 p22
-I2
+L2L
 sS'sql'
 p23
 S'INTEGER REFERENCES project (id) ON DELETE CASCADE  '
 p24
 sS'length'
 p25
-I512
+L512L
 sS'notnull'
 p26
-I00
+L0L
 sS'unique'
 p27
-I00
+L0L
 sS'type'
 p28
 S'reference project'

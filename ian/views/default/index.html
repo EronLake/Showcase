@@ -1,4 +1,9 @@
 {{extend 'layout.html'}}
+<style>
+    h1{
+        color:purple;
+    }
+</style>
 <h1><!--Available Projects--> View Users and Projects</h1>
 {{=grid}}
 [ {{=A('create project', _href=URL('default', 'createProject'))}} ] {{pass}}

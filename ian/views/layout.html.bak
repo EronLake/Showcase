@@ -33,6 +33,9 @@ body {
 	font-variant: normal;
     color: white; /*#6D6D6D*/
 }
+.text1{
+    color:purple;
+}
 
 a:link, a:visited {
                 background-color: white;
@@ -44,7 +47,8 @@ a:link, a:visited {
             }
 
 #menu a {
-    color: white;
+    background-color: white;
+    color: purple;
     padding: 2px 10px;
     text-align: center;
     text-decoration: none;
@@ -73,13 +77,16 @@ td{
 div{
    color: gray;
 }
+.content{
+    color:purple;
+}
 
 
   </style>
  </head>
  <body>
   <!-- start header -->
-  <!--{{try:}}{{=auth.navbar(action=URL('default','user'))}}{{except:pass}}-->
+  {{try:}}{{=auth.navbar(action=URL('default','user'))}}{{except:pass}}
 
   <div id="wrapper">
    <!-- start header -->
