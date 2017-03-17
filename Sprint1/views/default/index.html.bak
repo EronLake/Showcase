@@ -1,4 +1,14 @@
 {{extend 'layout.html'}}
+{{if auth.user_id:}}
+
+<h2>Hello, {{=db.auth_user[auth.user_id].first_name}}!</h2>
+
+{{else:}}
+
 <h1><!--Available Projects--> View Users and Projects</h1>
 {{=grid}}
 [ {{=A('create project', _href=URL('default', 'createProject'))}} ] {{pass}}
+[ {{=A('create person', _href=URL('createPerson'))}} ] {{pass}}
+[<a href="{{=URL('default', 'feed')}}">Check out your feed</a>]
+
+{{pass}}
