@@ -1,6 +1,8 @@
+"""
 def call():
-    """exposes all registered services, including XML-RPC"""
+    exposes all registered services, including XML-RPC
     return service()
+"""
 
 def profile():
     projects = get_projects()
@@ -38,6 +40,7 @@ def index():
                         headers=headers,
                         orderby=default_sort_order,
                         create=False,
+                        csv=False,
                         deletable=False,
                         editable=False,
                         details=False,

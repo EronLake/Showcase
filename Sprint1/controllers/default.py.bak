@@ -1,6 +1,8 @@
+"""
 def call():
-    """exposes all registered services, including XML-RPC"""
+    exposes all registered services, including XML-RPC
     return service()
+"""
 
 def profile():
     projects = get_projects()
@@ -9,8 +11,7 @@ def profile():
     
     print "project_count: %s" % project_count
     
-    return dict(profile=profile, projects=projects, last_project=last_project,project_count = project_count)
-    return dict(profile=profile, projects=projects, last_project=last_project)
+    return dict(projects=projects, last_project=last_project,project_count = project_count)
 
 
 def feed():

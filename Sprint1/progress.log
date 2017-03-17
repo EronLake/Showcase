@@ -644,3 +644,14 @@
 [2017-03-14 15:34:07] EDIT Sprint1/views/default/show.html: 0
 [2017-03-14 15:37:44] EDIT Sprint1/views/default/show.html: 0
 >>>>>>> 8a077921afefb6b17d490c19540be4e47c6beec8
+[2017-03-16 17:52:39] EDIT Sprint1/models/db.py: 3
+[2017-03-16 17:53:23] EDIT Sprint1/models/db.py: 0
+[2017-03-16 17:55:51] EDIT Sprint1/models/db.py: 0
+[2017-03-16 18:16:30] EDIT Sprint1/controllers/default.py: 2
+[2017-03-16 18:16:45] EDIT Sprint1/controllers/default.py: 0
+[2017-03-16 18:17:35] EDIT Sprint1/models/db.py: -1
+[2017-03-16 18:18:40] EDIT Sprint1/controllers/default.py: -5
+[2017-03-16 18:21:35] EDIT Sprint1/controllers/default.py: 5
+[2017-03-16 18:23:32] EDIT Sprint1/controllers/default.py: 1
+[2017-03-16 18:23:50] EDIT Sprint1/controllers/default.py: -1
+[2017-03-16 18:24:01] EDIT Sprint1/controllers/default.py: 1
