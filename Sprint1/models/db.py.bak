@@ -10,7 +10,7 @@ auth.define_tables()
 crud = Crud(db)
 
 db.define_table('profile',
-                Field('user_id', 'reference auth_user'),
+                Field('user_id', 'reference auth_user', default=auth.user_id),
                 Field('profilepic', 'upload'),
                 )
 
@@ -42,6 +42,10 @@ db.define_table('post',
                 Field('body', 'text'),
                 Field('created_on', 'datetime', default=request.now),
                 Field('created_by', 'reference auth_user', default=auth.user_id))
+
+db.define_table('collaborators',
+                Field('project_id', 'reference project'),
+                Field('user_id', 'reference user', default=auth.user_id))
 
 
 
