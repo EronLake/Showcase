@@ -883,6 +883,7 @@
 [2017-03-16 22:21:58] EDIT Sprint1/views/default/profile.html: -4
 =======
 >>>>>>> eec84677337a97beca6447eea2cbe0f2cc7d845d
+<<<<<<< HEAD
 >>>>>>> f874cb1483accedcfb401932e759a918fe4bca5c
 [2017-03-16 22:44:21] EDIT Sprint1/controllers/default.py: 4
 [2017-03-16 22:54:09] EDIT Sprint1/views/layout.html: 0
@@ -892,3 +893,42 @@
 [2017-03-16 23:21:52] EDIT Sprint1/controllers/default.py: 0
 [2017-03-16 23:21:59] EDIT Sprint1/views/default/profile.html: 0
 [2017-03-16 23:22:01] EDIT Sprint1/views/layout.html: 0
+=======
+[2017-03-16 21:38:14] EDIT Sprint1/views/default/show.html: 2
+[2017-03-16 21:39:15] EDIT Sprint1/views/default/show.html: 0
+[2017-03-16 21:46:12] EDIT Sprint1/controllers/default.py: 1
+[2017-03-16 21:46:58] EDIT Sprint1/controllers/default.py: 0
+[2017-03-16 21:48:55] EDIT Sprint1/views/default/show.html: 3
+[2017-03-16 21:50:22] EDIT Sprint1/views/default/show.html: 0
+[2017-03-16 22:02:53] EDIT Sprint1/views/default/show.html: 6
+[2017-03-16 22:04:01] EDIT Sprint1/views/default/show.html: -1
+[2017-03-16 22:04:10] EDIT Sprint1/views/default/show.html: 0
+[2017-03-16 22:05:08] EDIT Sprint1/views/default/show.html: 0
+[2017-03-16 22:06:10] EDIT Sprint1/views/default/show.html: 0
+[2017-03-16 22:08:31] EDIT Sprint1/controllers/default.py: 1
+[2017-03-16 22:08:33] EDIT Sprint1/controllers/default.py: 0
+[2017-03-16 22:08:49] EDIT Sprint1/controllers/default.py: 0
+[2017-03-16 22:09:12] EDIT Sprint1/views/default/show.html: -4
+[2017-03-16 22:14:51] EDIT Sprint1/views/default/show.html: 0
+[2017-03-16 22:16:15] EDIT Sprint1/controllers/default.py: 3
+[2017-03-16 22:17:53] EDIT Sprint1/views/default/show.html: 0
+[2017-03-16 22:18:46] EDIT Sprint1/views/default/show.html: 1
+[2017-03-16 22:19:06] EDIT Sprint1/views/default/show.html: -1
+[2017-03-16 22:24:24] EDIT Sprint1/views/default/show.html: 1
+[2017-03-16 22:25:31] EDIT Sprint1/views/default/show.html: 0
+[2017-03-16 22:25:48] EDIT Sprint1/views/default/show.html: 0
+[2017-03-16 22:26:09] EDIT Sprint1/views/default/show.html: 0
+[2017-03-16 22:36:07] EDIT Sprint1/views/default/show.html: 0
+[2017-03-16 22:36:23] EDIT Sprint1/views/default/show.html: -1
+[2017-03-16 22:39:42] EDIT Sprint1/controllers/default.py: 4
+[2017-03-16 22:47:09] EDIT Sprint1/controllers/default.py: 1
+[2017-03-16 22:48:44] EDIT Sprint1/controllers/default.py: -1
+[2017-03-16 22:56:44] CREATE default/add_collaborator.html: 0
+[2017-03-16 22:58:02] EDIT Sprint1/views/default/add_collaborator.html: 0
+[2017-03-16 22:58:46] EDIT Sprint1/controllers/default.py: 4
+[2017-03-16 22:59:41] EDIT Sprint1/controllers/default.py: 0
+[2017-03-16 22:59:49] EDIT Sprint1/views/default/add_collaborator.html: 0
+[2017-03-16 23:00:21] EDIT Sprint1/views/default/add_collaborator.html: 1
+[2017-03-16 23:01:28] EDIT Sprint1/views/default/add_collaborator.html: 0
+[2017-03-16 23:01:31] EDIT Sprint1/views/default/show.html: 0
+>>>>>>> 166ae6d5ec7a8f723fb7a6850935b0235704b720
