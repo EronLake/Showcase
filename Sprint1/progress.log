@@ -692,3 +692,6 @@
 [2017-03-16 18:14:37] EDIT Sprint1/views/default/profile.html: 0
 [2017-03-16 18:14:48] EDIT Sprint1/views/default/profile.html: 0
 >>>>>>> 0858f4f95a4c8fbf50cbcfb1a2890ed4f762d2ea
+[2017-03-16 18:54:52] EDIT Sprint1/models/db.py: 1
+[2017-03-16 18:56:34] EDIT Sprint1/models/db.py: 0
+[2017-03-16 18:59:32] EDIT Sprint1/controllers/default.py: 0

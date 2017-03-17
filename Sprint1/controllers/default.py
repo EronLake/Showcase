@@ -84,7 +84,7 @@ def show():
 def edit():
     this_project = db.project(request.args(0, cast=int)) or redirect(URL('index'))
     form = SQLFORM(db.project, this_project).process(
-                                                     next = URL('show', args=request.args))
+    next = URL('show', args=request.args))
     return dict(form=form)
 
 @auth.requires_login()

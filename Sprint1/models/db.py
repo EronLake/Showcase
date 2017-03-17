@@ -44,9 +44,9 @@ db.define_table('post',
                 Field('created_by', 'reference auth_user', default=auth.user_id))
 
 
-#db.define_table('collaborators',
-                #Field('project_id', 'reference project'),
-                #Field('user_id', 'reference user', default=auth.user_id))
+db.define_table('collaborators',
+                Field('project_id', 'reference project'),
+                Field('user_id', 'reference auth_user', default=auth.user_id))
 
 
 
