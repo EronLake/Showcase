@@ -36,7 +36,6 @@
 
             .post{
                 background-color: white;
-                text-align: center;
                 border: 2px solid gray;
                 border-radius: 2px;
                 width:100%;
@@ -57,16 +56,26 @@
                 font: 80% Helvetica;
             }
             .new_line:{margin: 10;}
+
+            .pt{text-align: left;}
+            .cat {background-color: purple; color: white; padding: 6px 10px; text-align: left;text-decoration: none; display: inline-block;}
+            .cr_on {text-align: right; text-decoration: none; display: inline-block;}
+
         </style>
     </head>
     <body>
         Your Feed
         {{for post in feed:}}
         <div class="post">
+            <b class = "pt"> <img src="{{=URL('download', args=post.image)}}"</img> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a  href="{{=URL('default','projects',args=post.id)}}">{{=post.title}} </a></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            created by: {{=post.created_by}}
+            <p calss = "new_line"></p>
             {{=post.body}}
             <p></p>
-            {{=post.created_on}}{{=post.created_by}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <a href="{{=URL('default','projects',args=post.id)}}">{{=post.id}}</a>
+           <b class = "cat"> Category: {{=post.category}}</b>
+           <b class = "cr_on"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Created on: {{=post.created_on}}</b>
+            {{if(post.created_by):}}{{pass}}
         </div>
         <p calss = "new_line"></p>
         {{pass}}
