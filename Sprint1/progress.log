@@ -841,6 +841,11 @@
 [2017-03-16 19:12:16] EDIT Sprint1/views/default/profile.html: 0
 =======
 >>>>>>> 0858f4f95a4c8fbf50cbcfb1a2890ed4f762d2ea
+<<<<<<< HEAD
+[2017-03-16 18:54:52] EDIT Sprint1/models/db.py: 1
+[2017-03-16 18:56:34] EDIT Sprint1/models/db.py: 0
+[2017-03-16 18:59:32] EDIT Sprint1/controllers/default.py: 0
+=======
 >>>>>>> 52e5d14beac9bff87336f86c68efb743759da09f
 >>>>>>> 7b495a3059c552678596f6e001bd0b9af33d62d5
 [2017-03-16 19:18:33] EDIT Sprint1/views/default/profile.html: 0
@@ -848,6 +853,7 @@
 [2017-03-16 19:21:06] EDIT Sprint1/views/default/profile.html: -1
 [2017-03-16 19:33:57] EDIT Sprint1/views/default/index.html: 4
 [2017-03-16 19:35:53] EDIT Sprint1/views/default/index.html: -3
+<<<<<<< HEAD
 [2017-03-16 19:54:09] EDIT Sprint1/views/default/profile.html: 1
 [2017-03-16 19:55:15] EDIT Sprint1/views/default/profile.html: -3
 [2017-03-16 19:55:33] EDIT Sprint1/views/default/profile.html: -1
@@ -875,3 +881,14 @@
 [2017-03-16 22:18:35] EDIT Sprint1/views/default/profile.html: 1
 [2017-03-16 22:19:17] EDIT Sprint1/views/default/profile.html: -1
 [2017-03-16 22:21:58] EDIT Sprint1/views/default/profile.html: -4
+=======
+>>>>>>> eec84677337a97beca6447eea2cbe0f2cc7d845d
+>>>>>>> f874cb1483accedcfb401932e759a918fe4bca5c
+[2017-03-16 22:44:21] EDIT Sprint1/controllers/default.py: 4
+[2017-03-16 22:54:09] EDIT Sprint1/views/layout.html: 0
+[2017-03-16 22:55:04] EDIT Sprint1/views/layout.html: -1
+[2017-03-16 22:56:30] EDIT Sprint1/views/layout.html: -1
+[2017-03-16 23:01:11] EDIT Sprint1/views/layout.html: -3
+[2017-03-16 23:21:52] EDIT Sprint1/controllers/default.py: 0
+[2017-03-16 23:21:59] EDIT Sprint1/views/default/profile.html: 0
+[2017-03-16 23:22:01] EDIT Sprint1/views/layout.html: 0

@@ -65,6 +65,10 @@ def createProject():
                  labels= {'project_title': "Title", 'project_body': "Body"},
                  submit_button = 'Submit your content',
                   )
+    if form.process(keepvalues=True).accepted:
+        response.flash = 'comment accepted'
+    else:
+        response.flash = 'errors, please check with administrator'
     return dict(form=form)
 
 def projects():
@@ -89,7 +93,7 @@ def show():
 def edit():
     this_project = db.project(request.args(0, cast=int)) or redirect(URL('index'))
     form = SQLFORM(db.project, this_project).process(
-                                                     next = URL('show', args=request.args))
+    next = URL('show', args=request.args))
     return dict(form=form)
 
 @auth.requires_login()

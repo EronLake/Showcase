@@ -129,29 +129,27 @@ div{
      <li>
       <h2>
        <strong>
-        Lorem
+        Navigate
        </strong>
-       Ipsum
+       
       </h2>
       <ul>
        <li>
-        <a href="#">
-         Fusce dui neque fringilla
+           <a href="{{=URL('default', 'index')}}">Home</a>
+        
+         
         </a>
        </li>
        <li>
-        <a href="#">
-         Eget tempor eget nonummy
+        <a href="{{=URL('default', 'createProject')}}">Create a project</a>
         </a>
        </li>
        <li>
-        <a href="#">
-         Magna lacus bibendum mauris
+        <a href="{{=URL('default', 'feed')}}">Check out your feed</a>
         </a>
        </li>
        <li>
-        <a href="#">
-         Nec metus sed donec
+        <a href="{{=URL('default', 'profile')}}">My Profile</a>
         </a>
        </li>
        <li>

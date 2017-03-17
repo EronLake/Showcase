@@ -7,18 +7,12 @@
 {{pass}}
 
 
-
-<h3>Last Project:</h3>
-
-<h4>{{=last_project.title}}</h4>
-  <p> {{=last_project.body}}</p>
-  <p>Created {{=last_project.created_on}}</p>
-
     
 <h3>Other Projects:</h3>
-{{if auth.user_id == project.created_by:}}
+
 
     {{for project in db().select(db.project.ALL, orderby=~db.project.created_on):}}
+        {{if auth.user_id == project.created_by:}}
           
         <div class="welcome">
             <b class = "pt"> <img src="{{=URL('download', args=project.image)}}"</img> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
