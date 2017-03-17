@@ -1,17 +1,16 @@
 {{extend 'layout.html'}}
 <link href="{{=URL('static','css/myapp.css')}}"      rel="stylesheet" type="text/css"/>
 
-<h1><!--Available Projects--> View Users and Projects</h1>
-[<a href="{{=URL('default', 'feed')}}">Check out your feed</a>]
+<h1><!--Available Projects--> View Projects</h1>
+<a href="{{=URL('default', 'feed')}}">Check out your feed</a>
+<p class = "new_line"></p>
 
 {{for post in feed:}}
         <div class="post">
             <!--{{=post}}-->
-            <a href="{{=URL('default','show',args=post.id)}}"><h2>{{=db.project[post.id].title}}</h2></a><!--{{=post.id}}</a>-->
+            <a href="{{=URL('default','show',args=post.id)}}">{{=db.project[post.id].title}}</a><!--{{=post.id}}</a>-->
             <br/>
-            <p>
-                {{=post.body}}
-            </p>
+            <br>{{=post.body}}</br>
             {{if post.Youtube_Embed_Link:}}
         <br>
         <iframe width="560" height="315" src={{=post.Youtube_Embed_Link}} frameborder="0" allowfullscreen></iframe>
@@ -22,12 +21,11 @@
         <iframe src={{=post.Vimeo_Embed_Link}} width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
         <br>
     {{pass}}
-            <p2>
-                {{=post.created_on}}
-            </p2>
-            
+        <p calss = "new_line"></p>
+        {{=post.created_on}}
             <br>
         </div>
+        <p calss = "new_line"></p>
         {{pass}}
 
 {{pass}}

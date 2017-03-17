@@ -6,16 +6,19 @@
 
 {{pass}}
 
-
+ <p class = "new_line"></p>
     
 <h3>Other Projects:</h3>
-
+ <p class = "new_line"></p>
 
     {{for project in db().select(db.project.ALL, orderby=~db.project.created_on):}}
         {{if auth.user_id == project.created_by:}}
           
         <div class="post">
-            <b class = "pt"> <img src="{{=URL('download', args=project.image)}}"</img> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {{if(project.image):}}
+            <img class = "post_img" src="{{=URL('download', args=project.image)}}" </img> </br>
+             <p class = "new_line"></p>
+            {{pass}}
             <a  href="{{=URL('default','show',args=project.id)}}">{{=project.title}} </a></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             created by: {{=project.created_by}}
             <p calss = "new_line"></p>
@@ -27,11 +30,9 @@
         
         <p class = "new_line"></p>
     
-
-               <a href="{{=URL('default', 'profile', args=[last_project.id])}}">
-                edit
-               </a>
+        <b style="text-align:right;"><a href="{{=URL('default', 'edit', args=[project.id])}}">edit</a></b>
             </div>
+            <p class = "new_line"></p>
 {{pass}}
 {{pass}}
 

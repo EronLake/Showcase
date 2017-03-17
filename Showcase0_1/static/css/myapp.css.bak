@@ -55,3 +55,4 @@ a:link, a:visited {
             .pt{text-align: left;}
             .cat {background-color: purple; color: white; padding: 6px 10px; text-align: left;text-decoration: none; display: inline-block;}
             .cr_on {text-align: right; text-decoration: none; display: inline-block;}
+            .post_img {width:304px;height:228px;object-fit: cover;}
