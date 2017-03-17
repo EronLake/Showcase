@@ -35,8 +35,8 @@ body {
 }
 
 a:link, a:visited {
-                background-color: orange;
-                color: white;
+                background-color: white;
+                color: #185caf;
                 padding: 6px 10px;
                 text-align: center;
                 text-decoration: none;
