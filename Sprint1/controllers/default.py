@@ -65,6 +65,10 @@ def createProject():
                  labels= {'project_title': "Title", 'project_body': "Body"},
                  submit_button = 'Submit your content',
                   )
+    if form.process(keepvalues=True).accepted:
+        response.flash = 'comment accepted'
+    else:
+        response.flash = 'errors, please check with administrator'
     return dict(form=form)
 
 def projects():
@@ -83,7 +87,17 @@ def show():
     db.post.project_id.default = this_project.id
     form = SQLFORM(db.post).process() if auth.user else None
     projectcomments = db(db.post.project_id == this_project.id).select()
-    return dict(project=this_project, comments=projectcomments, form=form)
+    projectcollaborators = db(db.collaborators.project_id == this_project.id).select()
+    return dict(project=this_project, comments=projectcomments, form=form, collaborators=projectcollaborators)
+
+@auth.requires_login()
+def add_collaborator():
+    newform = SQLFORM(db.collaborators)
+    if newform.process(keepvalues=True).accepted:
+        response.flash = 'comment accepted'
+    else:
+        response.flash = 'errors, please check with administrator'
+    return dict(newform=newform)
 
 @auth.requires_login()
 def edit():

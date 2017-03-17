@@ -13,7 +13,7 @@ def profile():
     
     print "project_count: %s" % project_count
     
-    return dict(projects=projects, last_project=last_project,project_count = project_count)
+    return dict(last_project=last_project,project_count = project_count)
 
 def get_projects():
     """get posts, in reverse chronological order"""
@@ -54,12 +54,6 @@ def index():
     return dict(grid=grid)
 
 
-<<<<<<< HEAD
-def get_projects():
-    """get posts, in reverse chronological order"""
-    return db(db.project).select().sort(lambda p: p.created_on, reverse=True)
-=======
->>>>>>> eec84677337a97beca6447eea2cbe0f2cc7d845d
 #create a new person
 #def createPerson():
 #form = SQLFORM(db.person).process(next=URL('index'))
@@ -71,6 +65,10 @@ def createProject():
                  labels= {'project_title': "Title", 'project_body': "Body"},
                  submit_button = 'Submit your content',
                   )
+    if form.process(keepvalues=True).accepted:
+        response.flash = 'comment accepted'
+    else:
+        response.flash = 'errors, please check with administrator'
     return dict(form=form)
 
 def projects():
@@ -89,13 +87,23 @@ def show():
     db.post.project_id.default = this_project.id
     form = SQLFORM(db.post).process() if auth.user else None
     projectcomments = db(db.post.project_id == this_project.id).select()
-    return dict(project=this_project, comments=projectcomments, form=form)
+    projectcollaborators = db(db.collaborators.project_id == this_project.id).select()
+    return dict(project=this_project, comments=projectcomments, form=form, collaborators=projectcollaborators)
+
+@auth.requires_login()
+def add_collaborator():
+    newform = SQLFORM(db.collaborators)
+    if newform.process(keepvalues=True).accepted:
+        response.flash = 'comment accepted'
+    else:
+        response.flash = 'errors, please check with administrator'
+    return dict(newform=newform)
 
 @auth.requires_login()
 def edit():
     this_project = db.project(request.args(0, cast=int)) or redirect(URL('index'))
     form = SQLFORM(db.project, this_project).process(
-                                                     next = URL('show', args=request.args))
+    next = URL('show', args=request.args))
     return dict(form=form)
 
 @auth.requires_login()
