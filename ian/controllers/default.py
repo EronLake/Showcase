@@ -124,6 +124,8 @@ def user():
 #can download docs
 def download():
     return response.download(request, db)
+@auth.requires_login()
 def profile():
+    this_bio = auth.user.bio
     this_picture = auth.user.profilepic
-    return dict(picture=this_picture)
+    return dict(picture=this_picture,bio=this_bio)

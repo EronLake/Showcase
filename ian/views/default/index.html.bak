@@ -1,7 +1,6 @@
 {{extend 'layout.html'}}
-<h1><!--Available Projects--> View Users and Projects</h1>
+<h1 color:purple;><!--Available Projects--> View Users and Projects</h1>
 {{=grid}}
 [ {{=A('create project', _href=URL('default', 'createProject'))}} ] {{pass}}
-[ {{=A('Edit userpage', _href=URL('edit_profile'))}} ] {{pass}}
-[ {{=A('Edit profile', _href=URL('create_profile'))}} ] {{pass}}
+[ {{=A('View Profile', _href=URL('profile'))}} ] {{pass}}
 [<a href="{{=URL('default', 'feed')}}">Check out your feed</a>]

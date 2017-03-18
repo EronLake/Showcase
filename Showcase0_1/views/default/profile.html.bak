@@ -1,21 +1,38 @@
 {{extend 'layout.html'}}
 <link href="{{=URL('static','css/myapp.css')}}"      rel="stylesheet" type="text/css"/>
 <html>
+{{pass}}
+    
 {{if auth.user_id:}}
-<h2 class="welcome">{{=db.auth_user[auth.user_id].first_name}}  {{=db.auth_user[auth.user_id].last_name}}</h2>
-
+    {{if picture:}}
+        <img width="200px"
+             src="{{=URL('download', args=picture)}}" />
+    {{else:}}
+        <img width="200px"
+             src="http://ctlatinonews.com/wp-content/uploads/missing-mcsanl.gov_.png" />
+    {{pass}}
+        <h2 class="welcome">{{=db.auth_user[auth.user_id].first_name}}  {{=db.auth_user[auth.user_id].last_name}}</h2>
+    <p class = "new_line"></p>
+    {{if bio:}}
+    <h3>Bio: {{=db.auth_user[auth.user_id].bio}}</h3>
+    {{else:}}
+    <h3>Bio: ¯\_(ツ)_/¯</h3>
+    {{pass}}
 {{pass}}
 
-
+ <p class = "new_line"></p>
     
 <h3>Other Projects:</h3>
-
+ <p class = "new_line"></p>
 
     {{for project in db().select(db.project.ALL, orderby=~db.project.created_on):}}
         {{if auth.user_id == project.created_by:}}
           
         <div class="post">
-            <b class = "pt"> <img src="{{=URL('download', args=project.image)}}"</img> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            {{if(project.image):}}
+            <img class = "post_img" src="{{=URL('download', args=project.image)}}" </img> </br>
+             <p class = "new_line"></p>
+            {{pass}}
             <a  href="{{=URL('default','show',args=project.id)}}">{{=project.title}} </a></b> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             created by: {{=project.created_by}}
             <p calss = "new_line"></p>
@@ -27,11 +44,9 @@
         
         <p class = "new_line"></p>
     
-
-               <a href="{{=URL('default', 'profile', args=[last_project.id])}}">
-                edit
-               </a>
+        <b style="text-align:right;"><a href="{{=URL('default', 'edit', args=[project.id])}}">edit</a></b>
             </div>
+            <p class = "new_line"></p>
 {{pass}}
 {{pass}}
 

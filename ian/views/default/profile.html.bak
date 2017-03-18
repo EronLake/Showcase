@@ -1,8 +1,36 @@
 {{extend 'layout.html'}}
+<style>
+.welcome{
+    color:purple;
+}
+h3{
+    width:200px;
+    font-size:16px;
+    color:purple;
+}
+h2{
+    float:left;
+}
+img{
+float:left;
+margin: 40px 0 0 0;
+margin-bottom: 15px;
+}
 
+</style>
 
 {{if auth.user_id:}}
-<h2 class="welcome">{{=db.auth_user[auth.user_id].first_name}}  {{=db.auth_user[auth.user_id].last_name}}</h2>
+{{if picture:}}
 <img width="200px"
      src="{{=URL('download', args=picture)}}" />
+{{else:}}
+<img width="200px"
+     src="http://ctlatinonews.com/wp-content/uploads/missing-mcsanl.gov_.png" />
+{{pass}}
+<h2 class="welcome">{{=db.auth_user[auth.user_id].first_name}}  {{=db.auth_user[auth.user_id].last_name}}</h2>
+{{if bio:}}
+<h3>Bio: {{=db.auth_user[auth.user_id].bio}}</h3>
+{{else:}}
+<h3>Bio: ¯\_(ツ)_/¯</h3>
+{{pass}}
 {{pass}}

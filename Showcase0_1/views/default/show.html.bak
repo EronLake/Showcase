@@ -47,7 +47,6 @@
     </head>
 <h1>{{=project.title}}</h1>
 [ {{=A('index', _href=URL('index', args=request.args))}}
-| {{<a href="{{=URL('default', 'following')}}">Follow a post</a>
 | {{if project.created_by==auth.user_id:}}
     {{=A('edit', _href=URL('edit', args=request.args))}}
    |{{=A('documents', _href=URL('documents', args=request.args))}}
@@ -92,10 +91,13 @@
     <iframe src={{=project.Vimeo_Embed_Link}} width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     <br>
 {{pass}}
+<p class = "new_line"></p>
 <h2>Post History</h2>
+<p class = "new_line"></p>
 {{for post in posts:}}
 <div class = "post">
-    <p>{{=db.auth_user[post.created_by].first_name}} on {{=post.created_on}} says</p>
+    {{=db.auth_user[post.created_by].first_name}} on &nbsp;&nbsp;&nbsp;<b class="cat"> {{=post.created_on}}</b> &nbsp;&nbsp;&nbsp; says
+    <p calss = "new_line"></p>
     {{=post.body}}
     {{if post.Youtube_Embed_Link:}}
         <br>
@@ -110,8 +112,11 @@
     {{for comm in comments:}}
                 {{if comm.document_id == post.id:}}
                 <div class="comment">
-                    <p>{{=db.auth_user[comm.created_by].first_name}} on {{=comm.created_on}} says</p>
+                    
+                    {{=db.auth_user[comm.created_by].first_name}} on &nbsp;&nbsp;&nbsp;<b class="cat">{{=comm.created_on}}</b> &nbsp;&nbsp;&nbsp; says
+                    <p calss = "new_line"></p>
                     {{=comm.body}}
+                    
                 </div>
                 {{pass}}
             {{pass}}
@@ -125,6 +130,7 @@
      says <i>{{=post.body}}</i></p>
 {{pass}}-->
 {{if auth.user_id:}}
+<p class = "new_line"></p>
 <h2>Make a new Post</h2>
     {{=form}}
 {{pass}}

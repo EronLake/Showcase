@@ -6,6 +6,9 @@ db = DAL('sqlite://storage.sqlite')
 #auth
 from gluon.tools import *
 auth = Auth(db)
+auth.settings.extra_fields['auth_user']= [
+  Field('profilepic','upload',requires = IS_IMAGE()),
+  Field('bio','text')]
 auth.define_tables()
 crud = Crud(db)
 

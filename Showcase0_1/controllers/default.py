@@ -9,12 +9,12 @@ def profile():
     projects = get_projects()
     last_project = projects.first()
     project_count = len(projects)
+    this_bio = auth.user.bio
+    this_picture = auth.user.profilepic
     #project_title ="title"
     #project_body = "body"
-    
     print "project_count: %s" % project_count
-    
-    return dict(last_project=last_project,project_count = project_count)
+    return dict(picture=this_picture,bio=this_bio,last_project=last_project,project_count = project_count)
 
 def get_projects():
     """get posts, in reverse chronological order"""
