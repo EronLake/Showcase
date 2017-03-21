@@ -70,10 +70,10 @@ def index():
 def createProject():
     form = SQLFORM(db.project,
                  labels= {'project_title': "Title", 'project_body': "Body"},
-                 submit_button = 'Submit your content',
+                 submit_button = 'Make a project!',
                   )
     if form.process(keepvalues=True).accepted:
-        response.flash = 'comment accepted'
+        response.flash = 'Project made!'
     else:
         response.flash = 'errors, please check with administrator'
     return dict(form=form)
@@ -112,7 +112,7 @@ def show():
 def add_collaborator():
     newform = SQLFORM(db.collaborators)
     if newform.process(keepvalues=True).accepted:
-        response.flash = 'comment accepted'
+        response.flash = 'Collaborator added!'
     else:
         response.flash = 'errors, please check with administrator'
     return dict(newform=newform)

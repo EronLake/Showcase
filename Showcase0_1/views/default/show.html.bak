@@ -46,18 +46,18 @@
         </style>-->
     </head>
 <h1>{{=project.title}}</h1>
-[ {{=A('index', _href=URL('index', args=request.args))}}
-| {{if project.created_by==auth.user_id:}}
+ {{=A('index', _href=URL('index', args=request.args))}}
+ {{if project.created_by==auth.user_id:}}
     {{=A('edit', _href=URL('edit', args=request.args))}}
-   |{{=A('documents', _href=URL('documents', args=request.args))}}
-   |<a href="{{=URL('default', 'add_collaborator')}}">Add a collaborator</a>]
-    | {{for collab in collaborators:}}
+   {{=A('documents', _href=URL('documents', args=request.args))}}
+   <a href="{{=URL('default', 'add_collaborator')}}">Add a collaborator</a>
+     {{for collab in collaborators:}}
         {{a=collab.user_id}}
         {{if auth.user_id==a:}}
-            |<a href="{{=URL('default', 'add_collaborator')}}">Add a collaborator</a>]
+            <a href="{{=URL('default', 'add_collaborator')}}">Add a collaborator</a>
         {{pass}}
         <!--{{=A('edit', _href=URL('edit', args=request.args))}}
-        |{{=A('documents', _href=URL('documents', args=request.args))}}-->
+        {{=A('documents', _href=URL('documents', args=request.args))}}-->
     {{pass}}
 {{pass}}<br />
 <br><h2>{{=project.category}}
